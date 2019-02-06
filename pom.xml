@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.perezma</groupId>
     <artifactId>my-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>my-pet-clinic</name>
     <description>My Pet Clinic Project</description>
 
@@ -41,6 +41,9 @@
     </build>
 
     <scm>
+        <connection>scm:git:git://github.com/michaelperez/my-pet-clinic.git</connection>
         <developerConnection>scm:git:https://github.com/michaelperez/my-pet-clinic.git</developerConnection>
+        <url>https://github.com/michaelperez/my-pet-clinic</url>
+      <tag>my-pet-clinic-0.0.1</tag>
   </scm>
 </project>
