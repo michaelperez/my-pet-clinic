@@ -1,6 +1,7 @@
 package com.perezma.mypetclinic.bootstrap;
 
 import com.perezma.mypetclinic.models.Owner;
+import com.perezma.mypetclinic.models.Pet;
 import com.perezma.mypetclinic.models.PetType;
 import com.perezma.mypetclinic.models.Vet;
 import com.perezma.mypetclinic.services.OwnerService;
@@ -8,6 +9,8 @@ import com.perezma.mypetclinic.services.PetTypeService;
 import com.perezma.mypetclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 
 @Component
@@ -39,12 +42,32 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("Jon");
         owner1.setLastName("Snow");
+        owner1.setAddress("North Road");
+        owner1.setCity("Winterfell");
+        owner1.setTelephone("1-800-RAVEN");
+
+        Pet jonPet = new Pet();
+        jonPet.setName("Fang");
+        jonPet.setPetType(savedDogPetType);
+        jonPet.setBirthDate(LocalDate.now());
+        jonPet.setOwner(owner1);
+        owner1.getPets().add(jonPet);
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setFirstName("Ramsey");
-        owner2.setLastName("Bolton");
+        owner2.setFirstName("Sansa");
+        owner2.setLastName("Stark");
+        owner2.setAddress("North Road");
+        owner2.setCity("Winterfell");
+        owner2.setTelephone("1-800-RAVEN");
+
+        Pet sansaPet = new Pet();
+        sansaPet.setName("Snowball");
+        sansaPet.setPetType(savedDogPetType);
+        sansaPet.setBirthDate(LocalDate.now());
+        sansaPet.setOwner(owner1);
+        owner2.getPets().add(sansaPet);
 
         ownerService.save(owner2);
 
