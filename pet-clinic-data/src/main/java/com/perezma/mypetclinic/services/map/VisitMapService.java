@@ -4,11 +4,13 @@ import com.perezma.mypetclinic.models.Visit;
 import com.perezma.mypetclinic.services.OwnerService;
 import com.perezma.mypetclinic.services.PetService;
 import com.perezma.mypetclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
