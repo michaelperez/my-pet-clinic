@@ -11,14 +11,6 @@ import java.util.Set;
 @Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
-    private final OwnerService ownerService;
-    private final PetService petService;
-
-    public VisitMapService(OwnerService ownerService, PetService petService) {
-        this.ownerService = ownerService;
-        this.petService = petService;
-    }
-
     @Override
     public Set<Visit> findAll() {
         return super.findAll();

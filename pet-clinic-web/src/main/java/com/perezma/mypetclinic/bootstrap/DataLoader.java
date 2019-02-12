@@ -1,10 +1,7 @@
 package com.perezma.mypetclinic.bootstrap;
 
 import com.perezma.mypetclinic.models.*;
-import com.perezma.mypetclinic.services.OwnerService;
-import com.perezma.mypetclinic.services.PetTypeService;
-import com.perezma.mypetclinic.services.SpecialtyService;
-import com.perezma.mypetclinic.services.VetService;
+import com.perezma.mypetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,14 +15,16 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialtyService specialtyService) {
+                      SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @SuppressWarnings("Duplicates")
@@ -92,6 +91,12 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(sansaPet);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(sansaPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Snowball sneezy visit");
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners....");
 
