@@ -32,11 +32,12 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         // Test if there is data in database before calling dataLoader.
-        int count = petTypeService.findAll().size();
-
-        if (count == 0) {
-            loadData();
-        }
+//        int count = petTypeService.findAll().size();
+//        if (count == 0) {
+//            loadData();
+//        } else {
+//            System.out.println("Data already loaded. Do not call loadData().");
+//        }
     }
 
     private void loadData() {
