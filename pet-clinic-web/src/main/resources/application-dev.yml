@@ -1,13 +1,13 @@
 # database
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sfg_dev
-    username: sfg_dev_user
-    password: guru
+    url: jdbc:mysql://192.168.99.100:3306/mpc_dev
+    username: mpc_dev_user
+    password: mpc
     platform: mysql
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: mysql
     show-sql: true
